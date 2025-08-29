@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.PersonMapper">
+
+    <select id="findAll" resultType="com.example.demo.Person">
+        SELECT id, name FROM person ORDER BY id
+    </select>
+
+    <insert id="insertByName" parameterType="string">
+        INSERT INTO person(name) VALUES(#{name})
+    </insert>
+
+    <!-- SQLite 获取最近插入ID -->
+    <select id="lastInsertId" resultType="long">
+        SELECT last_insert_rowid()
+    </select>
+
+</mapper>

@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -25,7 +24,4 @@ public class PersonController {
         Long id = personMapper.lastInsertId();
         return new Person(id, req.name());
     }
-
-    public record Person(Long id, String name) {}
-    public record CreatePersonRequest(String name) {}
 }
